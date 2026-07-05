@@ -1,0 +1,11 @@
+app.get("/api/attendance/list", async (req, res) => {
+  try {
+    const records = await Attendance.find().sort({ timestamp: -1 }).limit(100);
+    
+    // Returns status code 200 along with the array as a JSON payload
+    res.json(records); 
+  } catch (err) {
+    // Overrides the status code to 500, then returns an error object as JSON
+    res.status(500).json({ error: "Failed to fetch attendance" });
+  }
+});
