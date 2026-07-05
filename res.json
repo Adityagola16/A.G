@@ -1,14 +1,24 @@
-async function getAttendanceHistory() {
+async function makeApiCall() {
   try {
-    // 1. Fire the request over to your Express route
-    const response = await fetch("/api/attendance/list");
-    
-    // 2. Turn the raw JSON stream from res.json() into an iterable array/object
+    const response = await fetch("/api/attendance/list", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    // 1. Check if the response is empty or if it's an error code (like 404/500)
+    if (!response.ok) {
+      const errorText = await response.text(); // Read as plain text first to see what went wrong
+      console.error("Server returned an error page/text instead of JSON:", errorText);
+      return;
+    }
+
+    // 2. Safely parse only when you know it's a valid 200 OK stream
     const data = await response.json();
-    
-    console.log("Your parsed attendance data:", data);
     return data;
+
   } catch (error) {
-    console.error("Failed to parse JSON response:", error);
+    console.error("Caught error parsing JSON:", error);
   }
 }
