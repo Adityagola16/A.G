@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: my-web-app
+    runtime: node # Change to python, go, etc., depending on your app
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false # This tells Render to let you fill it securely once, or link it to a Render database
