@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">a.g-attend</string>
+    <string name="title_activity_main">a.g-attend</string>
+    <string name="package_name">com.ag.attend</string>
+    <string name="custom_url_scheme">com.ag.attend</string>
+</resources>

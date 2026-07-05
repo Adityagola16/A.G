@@ -1,0 +1,6 @@
+{
+  "name": "A.G Attend",
+  "description": "Enterprise-grade student attendance management system with multi-role dashboards, AI analytics, dynamic QR code attendance, and GPS verification.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
